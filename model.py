@@ -165,9 +165,7 @@ class Model(object):
             group.evaluate(dt)
 
 
-    def process(self, task, trial, stop=True, debug=False, model=None):
-
-        debug=True
+    def process(self, task, trial, stop=True, debug=True, model=None):
         
         _ = self.parameters
 

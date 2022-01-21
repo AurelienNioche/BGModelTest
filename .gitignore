@@ -1,0 +1,8 @@
+.idea
+__pycache__
+/figures-test/
+/dist/
+/cdana.egg-info/
+cdana/cdana.c
+cdana/cdana.cpython-39-darwin.so
+build

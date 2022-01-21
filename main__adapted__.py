@@ -63,8 +63,8 @@ class TheMostSimpleTask(object):
     @classmethod
     def plot(cls, mot_results):
 
-        if not path.exists("../figures-test"):
-            mkdir("../figures-test")
+        if not path.exists("./figures-test"):
+            mkdir("./figures-test")
 
         bool_mot_results = np.asarray(mot_results) == 1
 
@@ -83,14 +83,14 @@ class TheMostSimpleTask(object):
 
         plt.plot(np.arange(t_max), average_t, linewidth=2)
         plt.ylim([-0.01, 1.01])
-        plt.savefig("../figures-test/fig-behavior.pdf")
+        plt.savefig("./figures-test/fig-behavior.pdf")
         plt.close()
 
     @classmethod
     def plot_weights(cls, weight_list):
 
-        if not path.exists("../figures-test"):
-            mkdir("../figures-test")
+        if not path.exists("./figures-test"):
+            mkdir("./figures-test")
 
         weight_list = np.asarray(weight_list)
 
@@ -100,7 +100,7 @@ class TheMostSimpleTask(object):
 
             plt.plot(np.arange(t_max), weight_list[:, i], linewidth=2)
             plt.ylim([-0.01, 1.01])
-            plt.savefig("../figures-test/fig{}.pdf".format(i))
+            plt.savefig("./figures-test/fig{}.pdf".format(i))
             plt.close()
 
 
@@ -166,7 +166,7 @@ class RewardInSecondStep(object):
 
             weight_list.append(model["CTX:cog -> STR:cog"].weights.copy())
 
-        sleep(0.1)
+        # sleep(0.1)
         print()
 
         print("Cog results: ",
@@ -191,8 +191,8 @@ class RewardInSecondStep(object):
     @classmethod
     def plot(cls, mot_results):
 
-        if not path.exists("../figures-test"):
-            mkdir("../figures-test")
+        if not path.exists("./figures-test"):
+            mkdir("./figures-test")
 
         bool_mot_results_cond0 = np.asarray(mot_results) == 1
         bool_mot_results_cond1 = np.asarray(mot_results) == 2
@@ -214,14 +214,14 @@ class RewardInSecondStep(object):
 
         plt.plot(np.arange(t_max), average_t, linewidth=2)
         plt.ylim([-0.01, 1.01])
-        plt.savefig("../figures-test/fig-behavior.pdf")
+        plt.savefig("./figures-test/fig-behavior.pdf")
         plt.close()
 
     @classmethod
     def plot_weights(cls, weight_list):
 
-        if not path.exists("../figures-test"):
-            mkdir("../figures-test")
+        if not path.exists("./figures-test"):
+            mkdir("./figures-test")
 
         weight_list = np.asarray(weight_list)
 
@@ -231,7 +231,7 @@ class RewardInSecondStep(object):
 
             plt.plot(np.arange(t_max), weight_list[:, i], linewidth=2)
             plt.ylim([-0.01, 1.01])
-            plt.savefig("../figures-test/fig{}.pdf".format(i))
+            plt.savefig("./figures-test/fig{}.pdf".format(i))
             plt.close()
 
 
@@ -241,7 +241,6 @@ class ProbabilisticRewardInSecondStep(object):
     def run(cls):
 
         # Multiple stage game
-
         # Best strategy is to choose '1' at the first stage, then '2' at the second.
 
         model = Model(filename="economics-model-parameters.json", hebbian=False)
@@ -256,7 +255,7 @@ class ProbabilisticRewardInSecondStep(object):
 
         reward = 2
 
-        for i in tqdm(range(t_max)):
+        for _ in tqdm(range(t_max)):
 
             if decision_node == 0:
                 mot = -1
@@ -322,8 +321,8 @@ class ProbabilisticRewardInSecondStep(object):
     @classmethod
     def plot(cls, mot_results):
 
-        if not path.exists("../figures-test"):
-            mkdir("../figures-test")
+        if not path.exists("./figures-test"):
+            mkdir("./figures-test")
 
         bool_mot_results_cond0 = np.asarray(mot_results) == 1
         bool_mot_results_cond1 = np.asarray(mot_results) == 2
@@ -345,14 +344,14 @@ class ProbabilisticRewardInSecondStep(object):
 
         plt.plot(np.arange(t_max), average_t, linewidth=2)
         plt.ylim([-0.01, 1.01])
-        plt.savefig("../figures-test/fig-behavior.pdf")
+        plt.savefig("./figures-test/fig-behavior.pdf")
         plt.close()
 
     @classmethod
     def plot_weights(cls, weight_list):
 
-        if not path.exists("../figures-test"):
-            mkdir("../figures-test")
+        if not path.exists("./figures-test"):
+            mkdir("./figures-test")
 
         weight_list = np.asarray(weight_list)
 
@@ -362,7 +361,7 @@ class ProbabilisticRewardInSecondStep(object):
 
             plt.plot(np.arange(t_max), weight_list[:, i], linewidth=2)
             plt.ylim([-0.01, 1.01])
-            plt.savefig("../figures-test/fig{}.pdf".format(i))
+            plt.savefig("./figures-test/fig{}.pdf".format(i))
             plt.close()
 
 

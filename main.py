@@ -30,11 +30,11 @@ def main():
     trial["mot"][:] = [1, 1, 0, 0]
     model = Model(filename="model-topalidou-original.json")
 
-    t_max = 100
-    for i in tqdm(range(t_max)):
+    t_max = 500
+    for _ in tqdm(range(t_max)):
         model.process(task=task, trial=trial)
 
-    sleep(0.1)
+    # sleep(0.1)
     print()
 
     print("Cog results: ",
@@ -50,6 +50,7 @@ def main():
           "; 2:", task.results_mot.count(2) / len(task.results_mot),
           "; 3:", task.results_mot.count(3) / len(task.results_mot),
           "; -1:", task.results_mot.count(-1) / len(task.results_mot))
+
 
 if __name__ == "__main__":
 
